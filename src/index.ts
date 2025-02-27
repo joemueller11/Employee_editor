@@ -5,18 +5,20 @@ import inquirer from 'inquirer';
 
 await connectToDb();
 
-const promptUser = async () => {
-    const answer = await inquirer.prompt([
-      {
-        type: 'list',
-        name: 'action',
-        message: 'What would you like to do?',
-        choices: ['View Employees', 'Add Employee', 'Update Employee', 'Delete Employee', 'Exit']
-      }
-    ]);
-    
-    // Handle the selected action
-    console.log(`Selected action: ${answer.action}`);
-  };
-  
-  promptUser();
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'action',
+      message: 'Select from the following options',
+      choices: ['View all Departments',
+                'View all Roles',
+                'View all Employees',
+                'Add a Department',
+                'Add a Role',
+                'Add an Employee',
+                'Update an Employee Role']
+    }
+  ])
+  .then((answers) => {
+ 
