@@ -1,12 +1,12 @@
 -- Seed data -- 
-INSERT INTO departments (name) 
+INSERT INTO department (name) 
 VALUES 
 ('HR'), 
 ('Engineering'), 
 ('Finance'), 
 ('Legal');
 
-INSERT INTO roles (title, salary, department_id) 
+INSERT INTO role (title, salary, department_id) 
 VALUES
 ('HR Assistant', 80000, 1), 
 ('HR Lead', 150000, 1), 
@@ -17,12 +17,12 @@ VALUES
 ('Lawyer', 120000, 4),
 ('Legal Team Lead', 250000, 4);
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id) 
+INSERT INTO employee (first_name, last_name, role_id, manager_id) 
 VALUES 
 ('John', 'Brown',4, null), 
-('Joe', 'Mueller',3, 4),
+('Joe', 'Mueller',3, 1),
 ('Max', 'Pain',2, null), 
-('Billy', 'Kid',1, 2),
+('Billy', 'Kid',1, 3),
 ('Jesse', 'James',5, 6), 
 ('Annie', 'Oakley',6, null), 
 ('Buffalo', 'Bill',7, 8), 

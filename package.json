@@ -1,24 +1,31 @@
 {
-  "name": "solved",
+  "name": "employee_tracker",
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "server.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/server.js"
+    "start": "npm run build && node dist/index.js",
+    "create_db": "dotenv -e .env psql -U $DB_USER -f db/schema.sql",
+    "seed_db": "dotenv -e .env psql -U $DB_USER -d $DB_NAME -f db/seeds.sql",
+    "setup_db": "npm run create_db && npm run seed_db"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "inquirer": "^12.4.2",
+    "dotenv": "^16.4.7",
+    "inquirer": "^8.2.4",
     "pg": "^8.13.3"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.12.7",
     "@types/pg": "^8.11.6",
-    "typescript": "^5.2.2"
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^8.0.0",
+    "typescript": "^5.7.3"
   }
 }
